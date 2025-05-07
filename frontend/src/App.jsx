@@ -7,7 +7,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import UserGrid from "./Components/UserGrid";
@@ -19,7 +24,10 @@ import Login from "./Components/Login";
 //     ? "http://127.0.0.1:5000/api"
 //     : "https://react-python-project-tzr1.onrender.com/api";
 
-export const BASE_URL = "http://127.0.0.1:5000/api";
+export const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://127.0.0.1:5000/api" : "/api";
+
+// export const BASE_URL = "http://127.0.0.1:5000/api";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -58,7 +66,8 @@ function App() {
                       The Bond Board 🧑‍🤝‍🧑💞
                     </Text>
                     <Text fontSize="lg" color="gray.500">
-                      All your friends in one place. Add more & build your BFF network!
+                      All your friends in one place. Add more & build your BFF
+                      network!
                     </Text>
                   </Box>
 
